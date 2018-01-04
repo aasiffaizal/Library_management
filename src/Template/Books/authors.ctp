@@ -56,7 +56,7 @@
         </a><?php endforeach; ?>
         </div>
     </div>
-    <div class="col-md-2">
+    <div align="center" class="col-md-2">
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-modal">Add Author</button>
     </div>
   </div>
