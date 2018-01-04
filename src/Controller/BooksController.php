@@ -47,7 +47,7 @@
         {
             $this->loadModel('Authors');
             $authors = $this->Authors->find('all'); //Gets all the authors in the database
-            $count = $this->Authors->find('all')->count();
+            $count = $this->Authors->find('all')->count(); //author cout is retrieved
             $this->set('count',$count);
             $this->set(compact('authors'));
 
@@ -61,14 +61,12 @@
                 $author['Gender']=$gender[$index]; //gender is found using the index
                 $slug=$this->createSlug($author['Name']); //creating slug with the author's name
                 $author['Slug']=$slug;
-                //print_r($author);exit;
                 if ($this->Authors->save($author)) 
                 {
                     //$this->Flash->success(__('Your Author has been saved.'));
                     return $this->redirect(['action' => 'authors']);
                 }
                 $this->Flash->error(__('Author Already Exist'));
-                //$message="error";
                 
             }
             $this->set('message',$message);
@@ -77,11 +75,10 @@
 
         public function bookview($Slug=null)
         {
-            $books = $this->Books->find()->where(['Slug'=>$Slug])->toArray(); //Gets all the authors in the database
+            $books = $this->Books->find()->where(['Slug'=>$Slug])->toArray(); //Gets the book
             $id=$books[0]['Id'];
-            $prev = $this->Books->find()->where(['Id <'=>$id])->order(['Id' => 'DESC'])->first();
-            $next = $this->Books->find()->where(['Id >'=>$id])->first();
-            //print_r($prev);exit;
+            $prev = $this->Books->find()->where(['Id <'=>$id])->order(['Id' => 'DESC'])->first();//find the prev book
+            $next = $this->Books->find()->where(['Id >'=>$id])->first();//finding the next book
             $prev=$prev['Slug'];
             $next=$next['Slug'];
             
@@ -100,8 +97,8 @@
             $a_id=$authors[0]['Id'];
             $books = $this->Books->find()->where(['Author'=>$a_name])->toArray(); //Gets all the authors in the database
             $count = $this->Books->find()->where(['Author'=>$a_name])->count();
-            $prev = $this->Authors->find()->where(['Id <'=>$a_id])->order(['Id' => 'DESC'])->first();
-            $next = $this->Authors->find()->where(['Id >'=>$a_id])->first();
+            $prev = $this->Authors->find()->where(['Id <'=>$a_id])->order(['Id' => 'DESC'])->first();//finding the previous author
+            $next = $this->Authors->find()->where(['Id >'=>$a_id])->first();//finding the next author
             $prev=$prev['Slug'];
             $next=$next['Slug'];
             $this->set(compact($authors));

@@ -20,11 +20,17 @@ The database can be accessed using any app you are comfortable with. Since I use
 The installations can be found [here](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-16-04).
 
 Once phpmyadmin is installed, it should be added to the apache server. The commands to add it to the apache server is given below
+
 Open apache configuration
+
 `sudo nano /etc/apache2/apache2.conf`
+
 Once you opened it, add the following line at the end.
+
 `Include /etc/phpmyadmin/apache.conf`
+
 restart apache after that
+
 `service apache2 restart`
 
 ## CakePHP Framework
