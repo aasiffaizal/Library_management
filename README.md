@@ -1,11 +1,13 @@
 
 # Library Management System
 
-The url for the project is :
+The url for the project is : [http://52.88.200.174](http://52.88.200.174)
 
 You can find the working project in that url.
 
 In order to make the Project run in your System the following installation are provided below.
+
+The database structure along with some test data is in the folder. The name of the sql file is Library_management.sql
 
 ## LAMP
 
