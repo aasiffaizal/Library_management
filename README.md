@@ -1,48 +1,38 @@
-# CakePHP Application Skeleton
 
-[![Build Status](https://img.shields.io/travis/cakephp/app/master.svg?style=flat-square)](https://travis-ci.org/cakephp/app)
-[![License](https://img.shields.io/packagist/l/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)
+#Library Management System
 
-A skeleton for creating applications with [CakePHP](https://cakephp.org) 3.x.
+The url for the project is :
+
+You can find the working project in that url.
+
+In order to make the Project run in your System the following installation are provided below.
+
+##LAMP
+
+LAMP(Linux, Apache, MySQL, PHP) installation steps can be found [here](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-16-04)
+
+The database can be accessed using any app you are comfortable with. Since I used phpmyadmin. I am adding the installation method of it.
+
+##PHPmyadmin
+
+The installations can be found [here](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-16-04)
+
+## CakePHP Framework
+
+This web application is made using CakePHP 3.5.10
 
 The framework source code can be found here: [cakephp/cakephp](https://github.com/cakephp/cakephp).
 
-## Installation
+In order for the application to work, composer need to be installed.
 
+## Composer Installation
+
+Installing composer Locally
 1. Download [Composer](https://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
 2. Run `php composer.phar create-project --prefer-dist cakephp/app [app_name]`.
 
-If Composer is installed globally, run
-
-```bash
-composer create-project --prefer-dist cakephp/app
-```
-
-In case you want to use a custom app dir name (e.g. `/myapp/`):
-
-```bash
-composer create-project --prefer-dist cakephp/app myapp
-```
-
-You can now either use your machine's webserver to view the default home page, or start
-up the built-in webserver with:
-
-```bash
-bin/cake server -p 8765
-```
-
-Then visit `http://localhost:8765` to see the welcome page.
-
-## Update
-
-Since this skeleton is a starting point for your application and various files
-would have been modified as per your needs, there isn't a way to provide
-automated upgrades, so you have to do any updates manually.
-
-## Configuration
-
-Read and edit `config/app.php` and setup the `'Datasources'` and any other
-configuration relevant for your application.
+Installing composer globally
+`apt-get install composer`
 
 ## Layout
 
