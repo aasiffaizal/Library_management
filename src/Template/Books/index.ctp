@@ -107,8 +107,8 @@ div.message.hidden {
     <div class="col-md-10">
       <div class="list-group">
         <?php foreach ($books as $bookEntity): ?><div style"display:inline-block;">
-        <a href="books/bookview/<?php echo $bookEntity->Slug?>" class="list-group-item">
-        <img style="float:left;height:40px;width:40px;  text-align: center;" src="/Library_management/webroot/img/book_icon.svg"></img>
+        <a href="/books/bookview/<?php echo $bookEntity->Slug?>" class="list-group-item">
+        <img style="float:left;height:40px;width:40px;  text-align: center;" src="/webroot/img/book_icon.svg"></img>
         <div style="margin-left:50px;">
         <h4 style="display:inline-block;" class="list-group-item-heading"><b><?= h($bookEntity->Name) ?></b></h4><span style="float:right;" class="list-group-item-text">ISBN&nbsp;<?= h($bookEntity->ISBN) ?></span>
         <p class="list-group-item-text">by&nbsp;<b><?= h($bookEntity->Author) ?></b></p>

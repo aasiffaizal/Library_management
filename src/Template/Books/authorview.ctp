@@ -40,8 +40,8 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="defaultNavbar1">
       <ul class="nav navbar-nav navbar-right">
-        <li><a  href="/Library_management/">Book</a></li>
-        <li><a href="/Library_management/books/authors/">Author</a></li>
+        <li><a  href="/">Book</a></li>
+        <li><a href="/books/authors/">Author</a></li>
       </ul>
     </div>
     <!-- /.navbar-collapse --> 
@@ -50,7 +50,7 @@
 </nav>
 <div class="container">
  <div class="row">
-   <div class="col-md-5"><a href="/Library_management/books/authors">Authors</a> / Details</div>
+   <div class="col-md-5"><a href="/books/authors">Authors</a> / Details</div>
  </div>
  <br>
 <div class="row">
@@ -58,7 +58,7 @@
       <div class="list-group">
       <?php foreach ($authors as $author): ?>
         <div style="margin-right:15px;" class="list-group-item">
-        <img style="float:left;height:40px;width:40px;text-align: center;margin-right:20px;margin-top:15px;" src="/Library_management/webroot/img/author_icon.svg"></img>
+        <img style="float:left;height:40px;width:40px;text-align: center;margin-right:20px;margin-top:15px;" src="/webroot/img/author_icon.svg"></img>
           <h3 style="display:inline-block;margin-top:10px;" class="list-group-item-heading"><strong><?= h($author->Name) ?></strong></h3><span style="float:right;" class="list-group-item-text">Born in <?= h($author->Born_in) ?></span><br>
           <p class="list-group-item-text">Age &nbsp;<?= h($author->Age) ?>&nbsp;/&nbsp;<?= h($author->Gender) ?></p>
           <br><p style="margin-bottom:10px;" class="list-group-item-text"><?= h($author->About) ?></p>
@@ -67,8 +67,8 @@
        <br><b>&nbsp; Books Written <?= h($count) ?></b> 
        <br><br>
        <?php foreach ($books as $book): ?><div style"display:inline-block;">
-        <a href="/Library_management/books/bookview/<?php echo $book->Slug?>" style="margin-right:15px;" class="list-group-item">
-        <img style="float:left;height:40px;width:40px;text-align: center;margin-right:10px" src="/Library_management/webroot/img/book_icon.svg"></img>
+        <a href="/books/bookview/<?php echo $book->Slug?>" style="margin-right:15px;" class="list-group-item">
+        <img style="float:left;height:40px;width:40px;text-align: center;margin-right:10px" src="/webroot/img/book_icon.svg"></img>
         <h4 style="display:inline;" class="list-group-item-heading"><b><?= h($book->Name) ?></b></h4>
         <span style="float:right;" class="list-group-item-text">ISBN&nbsp;<?= h($book->ISBN) ?></span>
         <p class="list-group-item-text"><div class="comment more"><?= h($book->Content) ?></div></p>
@@ -80,13 +80,13 @@
       <button style="width:80px;" type="button" class="btn btn-default disabled"><span class="glyphicon glyphicon-chevron-left"></span></button>
 <?php endif;?>
 <?php if($prev!=null):?>
-      <a href="/Library_management/books/authorview/<?php echo $prev; ?>" style="width:80px;" type="button" class="btn btn-default "><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a href="/books/authorview/<?php echo $prev; ?>" style="width:80px;" type="button" class="btn btn-default "><span class="glyphicon glyphicon-chevron-left"></span></a>
 <?php endif;?>
 <?php if($next==null):?>
       <button style="width:80px;" type="button" class="btn btn-default disabled"><span class="glyphicon glyphicon-chevron-right"></span></button>
 <?php endif;?>
 <?php if($next!=null):?>
-      <a href="/Library_management/books/authorview/<?php echo $next; ?>" style="width:80px;" type="button" class="btn btn-default "><span class="glyphicon glyphicon-chevron-right"></span></a>
+      <a href="/books/authorview/<?php echo $next; ?>" style="width:80px;" type="button" class="btn btn-default "><span class="glyphicon glyphicon-chevron-right"></span></a>
 <?php endif;?>
       <br><p style="font-size:12px;">Navigate to previous/Next Author</p> 
     </div>

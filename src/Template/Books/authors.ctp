@@ -84,7 +84,7 @@ div.message.hidden {
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="defaultNavbar1">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/Library_management">Book</a></li>
+        <li><a href="/">Book</a></li>
         <li><a style="color:#6379f6;" href=""><strong>Author</strong></a></li>
       </ul>
     </div>
@@ -101,9 +101,9 @@ div.message.hidden {
     <div class="col-md-10">
       <div class="list-group">
         <?php foreach ($authors as $authorEntity): ?><div style"display:inline-block;">
-        <a href="/Library_management/books/authorview/<?php echo $authorEntity->Slug; ?>" class="list-group-item">
+        <a href="/books/authorview/<?php echo $authorEntity->Slug; ?>" class="list-group-item">
         
-        <img style="float:left;height:40px;width:40px;text-align: center;margin-right:10px" src="/Library_management/webroot/img/author_icon.svg"></img>
+        <img style="float:left;height:40px;width:40px;text-align: center;margin-right:10px" src="/webroot/img/author_icon.svg"></img>
         <h4 style="display:inline-block;" class="list-group-item-heading"><b><?= h($authorEntity->Name) ?></b></h4><span style="float:right;" class="list-group-item-text"><?= h($authorEntity->Born_in) ?></span>
         <p class="list-group-item-text">Age&nbsp;<?= h($authorEntity->Age) ?>&nbsp;/&nbsp;<?= h($authorEntity->Gender) ?></p>
         </a></div><?php endforeach; ?>
@@ -134,7 +134,7 @@ div.message.hidden {
                               </div>
                               <div class="row">
                             <div class="col-md-5" style="float:left;"><div class="form-group">
-                            <?php echo $this->Form->control('Age', ['class'=>'form-control','label'=>'Age']);?>
+                            <?php echo $this->Form->control('Age', ['min'=>1,'max'=>120, 'class'=>'form-control','label'=>'Age']);?>
                               </div></div>
                             <div class="col-md-5" style="float:right;"><div class="form-group">
                               <?php echo $this->Form->input('Gender', array('label'=>'Gender', 'class'=>'form-control','type'=>'select','empty'=>'Choose one','options'=>array('Male','Female','Other'))); ?> 

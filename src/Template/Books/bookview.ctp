@@ -29,8 +29,8 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="defaultNavbar1">
       <ul class="nav navbar-nav navbar-right">
-        <li><a  href="/Library_management/">Book</a></li>
-        <li><a href="/Library_management/books/authors/">Author</a></li>
+        <li><a  href="/">Book</a></li>
+        <li><a href="/books/authors/">Author</a></li>
       </ul>
     </div>
     <!-- /.navbar-collapse --> 
@@ -39,7 +39,7 @@
 </nav>
 <div class="container">
  <div class="row">
-   <div class="col-md-5"><a href="/Library_management/">Books</a> / Details</div>
+   <div class="col-md-5"><a href="/">Books</a> / Details</div>
  </div>
  <br>
 <div class="row">
@@ -50,7 +50,7 @@
         <div style="margin-right:15px;" class="list-group-item">
         
           <h3 style="display:inline-block;margin-top:20px;" class="list-group-item-heading"><strong><?= h($book->Name) ?></strong></h3><span style="float:right;margin-top:20px;" class="list-group-item-text">ISBN <?= h($book->ISBN) ?></span>
-          <img style="float:left;height:40px;width:40px;text-align: center;margin-right:10px;margin-top:20px;" src="/Library_management/webroot/img/author_icon.svg"></img>
+          <img style="float:left;height:40px;width:40px;text-align: center;margin-right:10px;margin-top:20px;" src="/webroot/img/author_icon.svg"></img>
           <div style="margin-left:50px;">
           <p class="list-group-item-text">by <strong><?= h($book->Author) ?></strong></p>
         <p class="list-group-item-text"><br>
@@ -62,13 +62,13 @@
       <button style="width:80px;" type="button" class="btn btn-default disabled"><span class="glyphicon glyphicon-chevron-left"></span></button>
 <?php endif;?>
 <?php if($prev!=null):?>
-      <a href="/Library_management/books/bookview/<?php echo $prev; ?>" style="width:80px;" type="button" class="btn btn-default "><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a href="/books/bookview/<?php echo $prev; ?>" style="width:80px;" type="button" class="btn btn-default "><span class="glyphicon glyphicon-chevron-left"></span></a>
 <?php endif;?>
 <?php if($next==null):?>
       <button style="width:80px;" type="button" class="btn btn-default disabled"><span class="glyphicon glyphicon-chevron-right"></span></button>
 <?php endif;?>
 <?php if($next!=null):?>
-      <a href="/Library_management/books/bookview/<?php echo $next; ?>" style="width:80px;" type="button" class="btn btn-default "><span class="glyphicon glyphicon-chevron-right"></span></a>
+      <a href="/books/bookview/<?php echo $next; ?>" style="width:80px;" type="button" class="btn btn-default "><span class="glyphicon glyphicon-chevron-right"></span></a>
 <?php endif;?>
       <br><p style="font-size:12px;">Navigate to previous/Next book</p> 
     </div>
