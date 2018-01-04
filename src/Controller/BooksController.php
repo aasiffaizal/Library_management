@@ -32,7 +32,6 @@
                 $book['Slug']=$slug;
                 if ($this->Books->save($book)) 
                 {
-                    $this->Flash->success(__('Your Book has been saved.'));
                     return $this->redirect(['action' => 'index']);
                 }
                 $this->Flash->error(__('Your Book already exist'));
@@ -52,14 +51,14 @@
             $this->set('count',$count);
             $this->set(compact('authors'));
 
-
+            $message=null;
             $author = $this->Authors->newEntity();
-            //$gender=array('Male','Female','Other');
+            $gender=array('Male','Female','Other');
             if ($this->request->is('post')) 
             { 
                 $author = $this->Authors->patchEntity($author, $this->request->getData());
-                //$index= $author['Gender']; //Gender index is returned and saved in variable $index
-                //$author['Gender']=$gender[$index]; //gender is found using the index
+                $index= $author['Gender']; //Gender index is returned and saved in variable $index
+                $author['Gender']=$gender[$index]; //gender is found using the index
                 $slug=$this->createSlug($author['Name']); //creating slug with the author's name
                 $author['Slug']=$slug;
                 //print_r($author);exit;
@@ -69,7 +68,10 @@
                     return $this->redirect(['action' => 'authors']);
                 }
                 $this->Flash->error(__('Author Already Exist'));
+                //$message="error";
+                
             }
+            $this->set('message',$message);
             $this->set('author',$author);
         }
 

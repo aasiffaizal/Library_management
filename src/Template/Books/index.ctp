@@ -8,6 +8,55 @@
         	display: none;
         
         }
+        div.message {
+    text-align: center;
+    cursor: pointer;
+    display: block;
+    font-weight: normal;
+    padding: 0 1.5rem 0 1.5rem;
+    transition: height 300ms ease-out 0s;
+    background-color: #a0d3e8;
+    color: #626262;
+    top: 15px;
+    right: 15px;
+    z-index: 999;
+    overflow: hidden;
+    height: 50px;
+    line-height: 2.5em;
+    box-radius: 5px;
+}
+
+div.message:before {
+    line-height: 0px;
+    font-size: 20px;
+    height: 12px;
+    width: 12px;
+    border-radius: 15px;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    position: relative;
+    left: -11px;
+    background-color: #FFF;
+    padding: 12px 14px 12px 10px;
+    content: "i";
+    color: #a0d3e8;
+}
+
+div.message.error {
+    background-color: #C3232D;
+    color: #FFF;
+}
+
+div.message.error:before {
+    padding: 11px 16px 14px 7px;
+    color: #C3232D;
+    content: "x";
+}
+div.message.hidden {
+    height: 0;
+}
+
 </STYLE>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,11 +86,11 @@
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#defaultNavbar1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-    <a class="navbar-brand" href=""><b>Library.</b></a></div>
+    <span style="color:#6379f6;" class="navbar-brand" href=""><strong><b>Library.</b></strong></span></div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="defaultNavbar1">
       <ul class="nav navbar-nav navbar-right">
-        <li><a class="active" href=""><u>Book</u></a></li>
+        <li><a style="color:#6379f6;" class="active" href=""><strong>Book</strong></a></li>
         <li><a href="books/authors">Author</a></li>
       </ul>
     </div>
@@ -57,17 +106,19 @@
 <div class="row">
     <div class="col-md-10">
       <div class="list-group">
-        <?php foreach ($books as $bookEntity): ?>
+        <?php foreach ($books as $bookEntity): ?><div style"display:inline-block;">
         <a href="books/bookview/<?php echo $bookEntity->Slug?>" class="list-group-item">
-        <h4 class="list-group-item-heading"><b><?= h($bookEntity->Name) ?></b></h4>
+        <img style="float:left;height:40px;width:40px;  text-align: center;" src="/Library_management/webroot/img/book_icon.svg"></img>
+        <div style="margin-left:50px;">
+        <h4 style="display:inline-block;" class="list-group-item-heading"><b><?= h($bookEntity->Name) ?></b></h4><span style="float:right;" class="list-group-item-text">ISBN&nbsp;<?= h($bookEntity->ISBN) ?></span>
         <p class="list-group-item-text">by&nbsp;<b><?= h($bookEntity->Author) ?></b></p>
-		<p style="margin-top:5px;" class="list-group-item-text">ISBN&nbsp;<?= h($bookEntity->ISBN) ?></p>
-        <p class="list-group-item-text"><div class="comment more"><?= h($bookEntity->Content) ?></div></p>
-        </a><?php endforeach; ?>
+		
+        <p class="list-group-item-text"><div class="comment more"><?= h($bookEntity->Content) ?></div></div></p>
+        </a></div><?php endforeach; ?>
         </div>
     </div>
-    <div align="center" class="col-md-2">
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-modal">Add Book</button>
+    <div class="col-md-2" align="center">
+      <button align="center" type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-modal">Add Book</button>
     </div>
   </div>
 </div>
@@ -143,7 +194,7 @@
 
 <Script>
 $(document).ready(function() {
-	var showChar = 200;
+	var showChar = 120;
 	var ellipsestext = "...";
 	var moretext = "more";
 	var lesstext = "less";

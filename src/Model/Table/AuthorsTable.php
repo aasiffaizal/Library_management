@@ -26,7 +26,7 @@ class AuthorsTable extends Table
     }
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->isUnique(['Name'],'This Author is already added'));
+        $rules->add($rules->isUnique(['Name','Age','Born_in','Gender'],'This Author is already added'));
         return $rules;
     }
 }

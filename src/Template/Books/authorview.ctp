@@ -36,7 +36,7 @@
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#defaultNavbar1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-    <a class="navbar-brand" href=""><b>Library.</b></a></div>
+      <span style="color:#6379f6;" class="navbar-brand" href=""><strong><b>Library.</b></strong></span></div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="defaultNavbar1">
       <ul class="nav navbar-nav navbar-right">
@@ -50,7 +50,7 @@
 </nav>
 <div class="container">
  <div class="row">
-   <div class="col-md-5"><a href="/Library_management/">Books</a> / Details</div>
+   <div class="col-md-5"><a href="/Library_management/books/authors">Authors</a> / Details</div>
  </div>
  <br>
 <div class="row">
@@ -58,20 +58,21 @@
       <div class="list-group">
       <?php foreach ($authors as $author): ?>
         <div style="margin-right:15px;" class="list-group-item">
-          <h3 class="list-group-item-heading"><strong><?= h($author->Name) ?></strong></h3>
+        <img style="float:left;height:40px;width:40px;text-align: center;margin-right:20px;margin-top:15px;" src="/Library_management/webroot/img/author_icon.svg"></img>
+          <h3 style="display:inline-block;margin-top:10px;" class="list-group-item-heading"><strong><?= h($author->Name) ?></strong></h3><span style="float:right;" class="list-group-item-text">Born in <?= h($author->Born_in) ?></span><br>
           <p class="list-group-item-text">Age &nbsp;<?= h($author->Age) ?>&nbsp;/&nbsp;<?= h($author->Gender) ?></p>
-          <br><p class="list-group-item-text"><?= h($author->About) ?></p>
+          <br><p style="margin-bottom:10px;" class="list-group-item-text"><?= h($author->About) ?></p>
             
         </div><?php endforeach; ?>
        <br><b>&nbsp; Books Written <?= h($count) ?></b> 
        <br><br>
-       <?php foreach ($books as $book): ?>
-        <a href="/Library_management/books/bookview/<?php echo $book->Slug?>" class="list-group-item">
-        <h4 class="list-group-item-heading"><b><?= h($book->Name) ?></b></h4>
-        <p class="list-group-item-text">by&nbsp;<b><?= h($book->Author) ?></b></p>
-		<p style="margin-top:5px;" class="list-group-item-text">ISBN&nbsp;<?= h($book->ISBN) ?></p>
+       <?php foreach ($books as $book): ?><div style"display:inline-block;">
+        <a href="/Library_management/books/bookview/<?php echo $book->Slug?>" style="margin-right:15px;" class="list-group-item">
+        <img style="float:left;height:40px;width:40px;text-align: center;margin-right:10px" src="/Library_management/webroot/img/book_icon.svg"></img>
+        <h4 style="display:inline;" class="list-group-item-heading"><b><?= h($book->Name) ?></b></h4>
+        <span style="float:right;" class="list-group-item-text">ISBN&nbsp;<?= h($book->ISBN) ?></span>
         <p class="list-group-item-text"><div class="comment more"><?= h($book->Content) ?></div></p>
-        </a><?php endforeach; ?>
+        </a></div><?php endforeach; ?>
         </div>
     </div>
          <div class="col-md-2" align="center">
@@ -87,7 +88,7 @@
 <?php if($next!=null):?>
       <a href="/Library_management/books/authorview/<?php echo $next; ?>" style="width:80px;" type="button" class="btn btn-default "><span class="glyphicon glyphicon-chevron-right"></span></a>
 <?php endif;?>
-      <br><p style="font-size:12px;">Navigate to previous/Next book</p> 
+      <br><p style="font-size:12px;">Navigate to previous/Next Author</p> 
     </div>
   </div>
 	</div>	
@@ -102,7 +103,7 @@
 <Script>
 $(document).ready(function() {
 	var showChar = 100;
-	var ellipsestext = "...";
+	var ellipsestext = "......";
 	var moretext = "more";
 	var lesstext = "less";
 	$('.more').each(function() {
@@ -113,7 +114,7 @@ $(document).ready(function() {
 			var c = content.substr(0, showChar);
 			var h = content.substr(showChar, content.length - showChar);
 
-			var html = c + '<span class="moreelipses">'+ellipsestext+'</span><span class="morecontent"><span>' + h + '</span><a href="" class="morelink">'+moretext+'</a></span>';
+			var html = c + '<span class="moreelipses">'+ellipsestext;
 
 			$(this).html(html);
 		}

@@ -1,5 +1,57 @@
 
+<style>
+  div.message {
+    text-align: center;
+    cursor: pointer;
+    display: block;
+    font-weight: normal;
+    padding: 0 1.5rem 0 1.5rem;
+    transition: height 300ms ease-out 0s;
+    background-color: #a0d3e8;
+    color: #626262;
+    top: 15px;
+    right: 15px;
+    z-index: 999;
+    overflow: hidden;
+    height: 50px;
+    line-height: 2.5em;
+    box-radius: 5px;
+}
 
+div.message:before {
+    line-height: 0px;
+    font-size: 20px;
+    height: 12px;
+    width: 12px;
+    border-radius: 15px;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    position: relative;
+    left: -11px;
+    background-color: #FFF;
+    padding: 12px 14px 12px 10px;
+    content: "i";
+    color: #a0d3e8;
+}
+
+div.message.error {
+    background-color: #C3232D;
+    color: #FFF;
+}
+
+div.message.error:before {
+    padding: 11px 16px 14px 7px;
+    color: #C3232D;
+    content: "x";
+}
+div.message.hidden {
+    height: 0;
+}
+
+}
+
+  </style>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,12 +80,12 @@
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#defaultNavbar1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-    <a class="navbar-brand" href="#"><b>Library.</b></a></div>
+    <span style="color:#6379f6;" class="navbar-brand" ><strong><b>Library.</b></strong></span></div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="defaultNavbar1">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/Library_management">Book</a></li>
-        <li><a class="active" href=""><u>Author</u></a></li>
+        <li><a style="color:#6379f6;" href=""><strong>Author</strong></a></li>
       </ul>
     </div>
     <!-- /.navbar-collapse --> 
@@ -48,12 +100,13 @@
 <div class="row">
     <div class="col-md-10">
       <div class="list-group">
-        <?php foreach ($authors as $authorEntity): ?>
-        <a href="authorview/<?php echo $authorEntity->Slug; ?>" class="list-group-item">
-        <h4 class="list-group-item-heading"><b><?= h($authorEntity->Name) ?></b></h4>
+        <?php foreach ($authors as $authorEntity): ?><div style"display:inline-block;">
+        <a href="/Library_management/books/authorview/<?php echo $authorEntity->Slug; ?>" class="list-group-item">
+        
+        <img style="float:left;height:40px;width:40px;text-align: center;margin-right:10px" src="/Library_management/webroot/img/author_icon.svg"></img>
+        <h4 style="display:inline-block;" class="list-group-item-heading"><b><?= h($authorEntity->Name) ?></b></h4><span style="float:right;" class="list-group-item-text"><?= h($authorEntity->Born_in) ?></span>
         <p class="list-group-item-text">Age&nbsp;<?= h($authorEntity->Age) ?>&nbsp;/&nbsp;<?= h($authorEntity->Gender) ?></p>
-        <p class="list-group-item-text"><?= h($authorEntity->Born_in) ?></p>
-        </a><?php endforeach; ?>
+        </a></div><?php endforeach; ?>
         </div>
     </div>
     <div align="center" class="col-md-2">

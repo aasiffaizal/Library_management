@@ -25,7 +25,7 @@
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#defaultNavbar1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-    <a class="navbar-brand" href="#"><b>Library.</b></a></div>
+      <span style="color:#6379f6;" class="navbar-brand" href=""><strong><b>Library.</b></strong></span></div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="defaultNavbar1">
       <ul class="nav navbar-nav navbar-right">
@@ -46,12 +46,15 @@
     <div class="col-md-10">
       <div class="list-group">
       <?php foreach ($books as $book): ?>
+      
         <div style="margin-right:15px;" class="list-group-item">
-          <h3 class="list-group-item-heading"><strong><?= h($book->Name) ?></strong></h3>
+        
+          <h3 style="display:inline-block;margin-top:20px;" class="list-group-item-heading"><strong><?= h($book->Name) ?></strong></h3><span style="float:right;margin-top:20px;" class="list-group-item-text">ISBN <?= h($book->ISBN) ?></span>
+          <img style="float:left;height:40px;width:40px;text-align: center;margin-right:10px;margin-top:20px;" src="/Library_management/webroot/img/author_icon.svg"></img>
+          <div style="margin-left:50px;">
           <p class="list-group-item-text">by <strong><?= h($book->Author) ?></strong></p>
-          <p class="list-group-item-text">ISBN <?= h($book->ISBN) ?></p>
         <p class="list-group-item-text"><br>
-        <?= h($book->Content) ?><br><br><br>
+        <?= h($book->Content) ?><br><br><br></div>
         </div><?php endforeach; ?></div>
     </div>
          <div class="col-md-2" align="center">

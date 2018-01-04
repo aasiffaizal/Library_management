@@ -25,7 +25,7 @@ class BooksTable extends Table
     }
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->isUnique(['Name'],'This Book is already added'));
+        $rules->add($rules->isUnique(['Name','Author'],'This Book is already added'));
         return $rules;
     }
 }
